@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  claptrap-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/usr/src/app
+    ports:
+      - "6980:6980"
+      - "16045:16045"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped 
